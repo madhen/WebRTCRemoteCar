@@ -2,8 +2,8 @@
 //  TouchManagingWebView.swift
 //  Angle
 //
-//  Created by Anish on 5/14/20.
-//  Copyright © 2020 Anish. All rights reserved.
+//  Created by Developer on 5/14/20.
+//  Copyright © 2020 Developer. All rights reserved.
 //
 
 import CoreGraphics

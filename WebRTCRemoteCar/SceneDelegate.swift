@@ -2,8 +2,8 @@
 //  SceneDelegate.swift
 //  WebRTCRemoteCar
 //
-//  Created by Anish on 5/15/20.
-//  Copyright © 2020 Anish. All rights reserved.
+//  Created by Developer on 5/15/20.
+//  Copyright © 2020 Developer. All rights reserved.
 //
 
 import UIKit

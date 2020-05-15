@@ -2,8 +2,8 @@
 //  HomeViewController.swift
 //  WebRTCRemoteCar
 //
-//  Created by Anish on 5/15/20.
-//  Copyright © 2020 Anish. All rights reserved.
+//  Created by Developer on 5/15/20.
+//  Copyright © 2020 Developer. All rights reserved.
 //
 
 import UIKit
@@ -11,6 +11,7 @@ import UIKit
 class HomeViewController: UIViewController {
     @IBOutlet private weak var webview: TouchHandlingWebView!
 
+    let webRTCServices = WebRTCServices()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,6 +19,7 @@ class HomeViewController: UIViewController {
     }
 
     private func setupView() {
+        webview.scrollView.isScrollEnabled = false
         webview.touchMoved = { [unowned self] output in
             self.didTouchMove(angle: output.angle, distance: output.distance)
         }
@@ -26,8 +28,18 @@ class HomeViewController: UIViewController {
 
 private extension HomeViewController {
     func didTouchMove(angle: CGFloat, distance: CGFloat) {
-        print("Angle --------- \(angle)")
+        print("\n\nAngle in radius --------- \(angle)")
+        print("Angle in degree --------- \(angle * 180.0 / 3.14)")
         print("Distance --------- \(distance)")
+        
+        webRTCServices.fetchSome {[weak self] response in
+            guard let _ = self else { return }
+            switch response {
+            case .success(let value): print("Value: \(value?.someAttribute ?? "")")
+            case .failure(let error): print("Error: \(error.localizedDescription)")
+            }
+            
+        }
     }
 }
 

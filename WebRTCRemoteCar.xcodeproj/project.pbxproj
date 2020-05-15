@@ -15,6 +15,10 @@
 		F81D4DAE246E50F0002286D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F81D4DAC246E50F0002286D7 /* LaunchScreen.storyboard */; };
 		F81D4DB8246E51F9002286D7 /* TouchHandlingWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81D4DB7246E51F9002286D7 /* TouchHandlingWebView.swift */; };
 		F81D4DBB246E52D3002286D7 /* CGPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81D4DBA246E52D3002286D7 /* CGPoint+Extension.swift */; };
+		F81D4DD1246F1525002286D7 /* JSONSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81D4DCF246F1525002286D7 /* JSONSerializer.swift */; };
+		F81D4DD2246F1525002286D7 /* BaseServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81D4DD0246F1525002286D7 /* BaseServices.swift */; };
+		F81D4DD4246F15AC002286D7 /* WebRTCServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81D4DD3246F15AC002286D7 /* WebRTCServices.swift */; };
+		F81D4DD6246F17D3002286D7 /* SomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81D4DD5246F17D3002286D7 /* SomeModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		F81D4DAF246E50F0002286D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F81D4DB7246E51F9002286D7 /* TouchHandlingWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchHandlingWebView.swift; sourceTree = "<group>"; };
 		F81D4DBA246E52D3002286D7 /* CGPoint+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extension.swift"; sourceTree = "<group>"; };
+		F81D4DCF246F1525002286D7 /* JSONSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONSerializer.swift; sourceTree = "<group>"; };
+		F81D4DD0246F1525002286D7 /* BaseServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseServices.swift; sourceTree = "<group>"; };
+		F81D4DD3246F15AC002286D7 /* WebRTCServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebRTCServices.swift; sourceTree = "<group>"; };
+		F81D4DD5246F17D3002286D7 /* SomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SomeModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +71,7 @@
 				F81D4DB5246E519F002286D7 /* Home */,
 				F81D4DB6246E51C5002286D7 /* UIViews */,
 				F81D4DB9246E52B5002286D7 /* Extensions */,
+				F81D4DBC246F11CB002286D7 /* Services */,
 				F81D4DA1246E50EF002286D7 /* AppDelegate.swift */,
 				F81D4DA3246E50EF002286D7 /* SceneDelegate.swift */,
 				F81D4DA7246E50EF002286D7 /* Main.storyboard */,
@@ -95,6 +104,41 @@
 				F81D4DBA246E52D3002286D7 /* CGPoint+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		F81D4DBC246F11CB002286D7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				F81D4DCE246F1525002286D7 /* Core */,
+				F81D4DBD246F11F8002286D7 /* WebRTCServices */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		F81D4DBD246F11F8002286D7 /* WebRTCServices */ = {
+			isa = PBXGroup;
+			children = (
+				F81D4DBE246F1220002286D7 /* Model */,
+				F81D4DD3246F15AC002286D7 /* WebRTCServices.swift */,
+			);
+			path = WebRTCServices;
+			sourceTree = "<group>";
+		};
+		F81D4DBE246F1220002286D7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F81D4DD5246F17D3002286D7 /* SomeModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F81D4DCE246F1525002286D7 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				F81D4DCF246F1525002286D7 /* JSONSerializer.swift */,
+				F81D4DD0246F1525002286D7 /* BaseServices.swift */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,9 +213,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F81D4DA6246E50EF002286D7 /* HomeViewController.swift in Sources */,
+				F81D4DD1246F1525002286D7 /* JSONSerializer.swift in Sources */,
+				F81D4DD2246F1525002286D7 /* BaseServices.swift in Sources */,
 				F81D4DA2246E50EF002286D7 /* AppDelegate.swift in Sources */,
 				F81D4DB8246E51F9002286D7 /* TouchHandlingWebView.swift in Sources */,
+				F81D4DD4246F15AC002286D7 /* WebRTCServices.swift in Sources */,
 				F81D4DBB246E52D3002286D7 /* CGPoint+Extension.swift in Sources */,
+				F81D4DD6246F17D3002286D7 /* SomeModel.swift in Sources */,
 				F81D4DA4246E50EF002286D7 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
