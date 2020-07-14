@@ -16,10 +16,10 @@ struct WebRTCServices {
     }
     
     enum EndPoint: String {
-        case some = "some.json"
+        case some = "fordev.html"
         
         private static var hostURL: String {
-            return "www.apple.com"
+            return "http://10.0.0.77:8888"
         }
         
         private var fullPath: String {
@@ -41,3 +41,4 @@ extension WebRTCServices {
         service.request(url, completion: completion)
     }
 }
+    
