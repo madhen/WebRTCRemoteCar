@@ -13,7 +13,7 @@
 		F81D4DA9246E50EF002286D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F81D4DA7246E50EF002286D7 /* Main.storyboard */; };
 		F81D4DAB246E50F0002286D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F81D4DAA246E50F0002286D7 /* Assets.xcassets */; };
 		F81D4DAE246E50F0002286D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F81D4DAC246E50F0002286D7 /* LaunchScreen.storyboard */; };
-		F81D4DB8246E51F9002286D7 /* TouchHandlingWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81D4DB7246E51F9002286D7 /* TouchHandlingWebView.swift */; };
+		F81D4DB8246E51F9002286D7 /* TouchHandlingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81D4DB7246E51F9002286D7 /* TouchHandlingView.swift */; };
 		F81D4DBB246E52D3002286D7 /* CGPoint+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81D4DBA246E52D3002286D7 /* CGPoint+Extension.swift */; };
 		F81D4DD1246F1525002286D7 /* JSONSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81D4DCF246F1525002286D7 /* JSONSerializer.swift */; };
 		F81D4DD2246F1525002286D7 /* BaseServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = F81D4DD0246F1525002286D7 /* BaseServices.swift */; };
@@ -30,7 +30,7 @@
 		F81D4DAA246E50F0002286D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F81D4DAD246E50F0002286D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F81D4DAF246E50F0002286D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F81D4DB7246E51F9002286D7 /* TouchHandlingWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchHandlingWebView.swift; sourceTree = "<group>"; };
+		F81D4DB7246E51F9002286D7 /* TouchHandlingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TouchHandlingView.swift; sourceTree = "<group>"; };
 		F81D4DBA246E52D3002286D7 /* CGPoint+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGPoint+Extension.swift"; sourceTree = "<group>"; };
 		F81D4DCF246F1525002286D7 /* JSONSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONSerializer.swift; sourceTree = "<group>"; };
 		F81D4DD0246F1525002286D7 /* BaseServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseServices.swift; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 		F81D4DB6246E51C5002286D7 /* UIViews */ = {
 			isa = PBXGroup;
 			children = (
-				F81D4DB7246E51F9002286D7 /* TouchHandlingWebView.swift */,
+				F81D4DB7246E51F9002286D7 /* TouchHandlingView.swift */,
 			);
 			path = UIViews;
 			sourceTree = "<group>";
@@ -216,7 +216,7 @@
 				F81D4DD1246F1525002286D7 /* JSONSerializer.swift in Sources */,
 				F81D4DD2246F1525002286D7 /* BaseServices.swift in Sources */,
 				F81D4DA2246E50EF002286D7 /* AppDelegate.swift in Sources */,
-				F81D4DB8246E51F9002286D7 /* TouchHandlingWebView.swift in Sources */,
+				F81D4DB8246E51F9002286D7 /* TouchHandlingView.swift in Sources */,
 				F81D4DD4246F15AC002286D7 /* WebRTCServices.swift in Sources */,
 				F81D4DBB246E52D3002286D7 /* CGPoint+Extension.swift in Sources */,
 				F81D4DD6246F17D3002286D7 /* SomeModel.swift in Sources */,

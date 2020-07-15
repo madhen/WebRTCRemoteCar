@@ -8,9 +8,8 @@
 
 import CoreGraphics
 import UIKit
-import WebKit
 
-class TouchHandlingWebView: WKWebView {
+class TouchHandlingView: UIView {
     struct Output {
         let angle: CGFloat
         let distance: CGFloat
@@ -19,9 +18,9 @@ class TouchHandlingWebView: WKWebView {
     var touchDown = CGPoint.zero
     
     var touchMoved: ((Output) -> ())?
-    
-    override init(frame: CGRect, configuration: WKWebViewConfiguration) {
-        super.init(frame: frame, configuration: configuration)
+        
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
         setup()
     }
@@ -34,7 +33,6 @@ class TouchHandlingWebView: WKWebView {
     
     private func setup() {
         let tapGesture = UIPanGestureRecognizer(target: self, action: #selector(handleTap(gesture:)))
-        tapGesture.delegate = self
         addGestureRecognizer(tapGesture)
     }
     
@@ -49,11 +47,5 @@ class TouchHandlingWebView: WKWebView {
             let output = Output(angle: touchDown.angle(to: endPoint), distance: touchDown.distance(to: endPoint))
             touchMoved(output)
         }
-    }
-}
-
-extension TouchHandlingWebView: UIGestureRecognizerDelegate {
-    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
     }
 }

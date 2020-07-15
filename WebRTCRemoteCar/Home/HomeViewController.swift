@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import WebKit
 
 class HomeViewController: UIViewController {
-    @IBOutlet private weak var webview: TouchHandlingWebView!
+    @IBOutlet private weak var webview: WKWebView!
 
     let webRTCServices = WebRTCServices()
     override func viewDidLoad() {
@@ -20,9 +21,14 @@ class HomeViewController: UIViewController {
 
     private func setupView() {
         webview.scrollView.isScrollEnabled = false
-        webview.touchMoved = { [unowned self] output in
+        let touchView = TouchHandlingView(frame: webview.frame)
+        touchView.touchMoved = { [unowned self] output in
             self.didTouchMove(angle: output.angle, distance: output.distance)
         }
+        touchView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+        view.addSubview(touchView)
+        view.bringSubviewToFront(touchView)
+    
     }
 }
 
