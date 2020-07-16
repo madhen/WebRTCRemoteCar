@@ -15,15 +15,23 @@ struct WebRTCServices {
         self.service = service
     }
     
-    enum EndPoint: String {
-        case some = "some.json"
+    enum EndPoint {
+        
+        case fetchDrive(radiusAngle: Double, degree: Double, distance: Double, driver: String)
+        case postDrive
         
         private static var hostURL: String {
             return "www.apple.com"
         }
         
         private var fullPath: String {
-            return "\(EndPoint.hostURL)/\(rawValue)"
+            let path: String = {
+                switch self {
+                case .fetchDrive(let radiusAngle, let degree, let distance, let driver): return "drive?radiusAngle=\(radiusAngle)&degree=\(degree)&distance=\(distance)&driver=\(driver)"
+                case .postDrive: return "start"
+                }
+            }()
+            return "\(EndPoint.hostURL)/\(path)"
         }
         
         var url: URL? {
@@ -33,11 +41,21 @@ struct WebRTCServices {
 }
 
 extension WebRTCServices {
-    func fetchSome(completion: @escaping (_ result: Result<SomeModel?, Error>) -> ()) {
-        guard let url = EndPoint.some.url else {
+    func fetchDrive(radiusAngle: Double, degree: Double, distance: Double, driver: String, completion: @escaping (_ result: Result<DriveModel?, Error>) -> ()) {
+        guard let url = EndPoint.fetchDrive(radiusAngle: radiusAngle, degree: degree, distance: distance, driver: driver).url else {
+            completion(.failure(WebRTCError.unsopprtedURL))
+            return
+        }
+        service.request(url, completion: completion)
+    }
+    
+    func postDrive(driver: String, completion: @escaping (_ result: Result<DriveModel?, Error>) -> ()) {
+        guard let url = EndPoint.postDrive.url else {
+            completion(.failure(WebRTCError.unsopprtedURL))
             return
         }
         
-        service.request(url, completion: completion)
+        let body = ["driverName": driver]
+        service.request(url, method: .post, headers: nil, body: body, keypath: nil, completion: completion)
     }
 }

@@ -23,7 +23,7 @@ protocol APIRequestable {
     func request<Response: Decodable>(_ url: URL, completion: @escaping (_ result: Result<Response?, Error>) -> ())
     func request<Response: Decodable>(_ url: URL, keypath: String?, completion: @escaping (_ result: Result<Response?, Error>) -> ())
     
-    func request<Response: Decodable>(_ url: URL, method: HTTPMethod, headers: [String: String]?, body: Data?, keypath: String?, completion: @escaping (_ result: Result<Response?, Error>) -> ())
+    func request<Response: Decodable>(_ url: URL, method: HTTPMethod, headers: [String: String]?, body: [String: Any]?, keypath: String?, completion: @escaping (_ result: Result<Response?, Error>) -> ())
     func request(_ url: URL, completion: @escaping (_ result: Result<Data?, Error>) -> ()) -> URLSessionDataTask?
 }
 
@@ -66,8 +66,14 @@ final class BaseServices: APIRequestable {
     /// - parameter keypath: Response key name where decoding need to begin.
     /// - parameter completion: completion of request.
     /// - parameter result: Codable response model or Error.
-    func request<Response: Decodable>(_ url: URL, method: HTTPMethod, headers: [String: String]?, body: Data?, keypath: String?, completion: @escaping (_ result: Result<Response?, Error>) -> ()) {
-        let request = executableURLRequest(url, method: method, headers: headers, body: body)
+    func request<Response: Decodable>(_ url: URL, method: HTTPMethod, headers: [String: String]?, body: [String: Any]?, keypath: String?, completion: @escaping (_ result: Result<Response?, Error>) -> ()) {
+        let postBody: Data? = {
+            guard let body = body else { return nil }
+            
+            return try? NSKeyedArchiver.archivedData(withRootObject: body, requiringSecureCoding: false)
+        }()
+        
+        let request = executableURLRequest(url, method: method, headers: headers, body: postBody)
         
         let dataTask: URLSessionDataTask = session.dataTask(with: request) { [weak self] (data, _, error) in
             

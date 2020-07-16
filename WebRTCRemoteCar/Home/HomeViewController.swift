@@ -38,10 +38,10 @@ private extension HomeViewController {
         print("Angle in degree --------- \(angle * 180.0 / 3.14)")
         print("Distance --------- \(distance)")
         
-        webRTCServices.fetchSome {[weak self] response in
+        webRTCServices.fetchDrive(radiusAngle: Double(angle), degree: Double(angle * 180.0 / 3.14), distance: Double(distance), driver: "Madhen") {[weak self] response in
             guard let _ = self else { return }
             switch response {
-            case .success(let value): print("Value: \(value?.someAttribute ?? "")")
+            case .success(let value): print("Value: \(value?.fontObstacle ?? 0)")
             case .failure(let error): print("Error: \(error.localizedDescription)")
             }
             
